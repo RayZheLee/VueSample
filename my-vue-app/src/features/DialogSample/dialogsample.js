@@ -2,10 +2,10 @@ import { createApp } from 'vue'
 
 import '@mdi/font/css/materialdesignicons.css'
 
-import TableSample from './TableSample.vue'
+import DialogSample from './DialogSample.vue'
 import { vuetify } from '../../plugins/vuetify.js'
 
-const app = createApp(TableSample)
+const app = createApp(DialogSample)
 
 app.use(vuetify)
 

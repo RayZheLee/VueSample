@@ -13,3 +13,15 @@ export async function getAreaList() {
 
     return result.data.areaList
 }
+
+export async function getDepList() {
+    const result = await request(API_BASE_URL, '/employeeInfo')
+
+    return result.data.depList
+}
+
+export async function getEmpList() {
+    const result = await request(API_BASE_URL, '/employeeInfo')
+
+    return result.data.empList
+}
