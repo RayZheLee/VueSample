@@ -1,29 +1,57 @@
 <template>
-    <v-data-table
-        :headers="headers"
-        :items="companies"
-        item-value="code"
-        :items-per-page="5"
-        :items-per-page-options="[5, 10, 15, 20, 100]"
-        :loading="loading"
-        loading-text="資料載入中..."
-    />
-    <v-data-table
-        :headers="headersArea"
-        :items="area"
-        item-value="code"
-        :items-per-page="5"
-        :items-per-page-options="[5, 10, 15, 20, 100]"
-        :loading="loadingArea"
-        loading-text="資料載入中..."
-    />
+    <div>
+        <!-- 右上方重新整理按鈕 -->
+        <div class="table-actions">
+            <v-text-field
+                v-model="search"
+                label="Search"
+                prepend-inner-icon="mdi-magnify"
+                variant="outlined"
+                density="compact"
+                clearable
+                hide-details
+            />
+            <v-btn
+                prepend-icon="mdi-refresh"
+                color="grey-darken-1"
+                variant="flat"
+                :loading="loading"
+                @click="getCompanies(true)"
+            >
+                Refresh
+            </v-btn>
+        </div>
 
+        <v-data-table
+            v-model:search="search"
+            :headers="headers"
+            :items="companies"
+            item-value="code"
+            :items-per-page="5"
+            :items-per-page-options="[5, 10, 15, 20, 100]"
+            :loading="loading"
+            loading-text="資料載入中..."
+            class="area-table"
+        />
+        <!-- 共用提示 Modal -->
+        <!-- <MessageDialog
+            v-model="showMessage"
+            type="success"
+            title=""
+            message="更新成功！"
+        /> -->
+    </div>
 </template>
 
 
 <script setup>
 import { ref, onMounted } from 'vue'
 import { getCompanyList } from '../../api/ihrms'
+import MessageDialog from '../../components/MessageDialog.vue'
+const showMessage = ref(false)
+const message = ref('')
+const messageType = ref('info')
+const search = ref('')
 
 const headers = [
     { title: '公司代碼', key: 'code' },
@@ -33,44 +61,55 @@ const headers = [
 
 const companies = ref([])
 const loading = ref(false)
+import { showAlertMessage } from '../../utils/messageAlertDialog'
 
-onMounted(async () => {
-    loading.value = true
-
+async function getCompanies(showDialog = false) {
     try {
-        companies.value = await getCompanyList()
+        loading.value = true
+        companies.value = [];
+
+        const data = await getCompanyList()
+
+        companies.value = data
+
+        if (showDialog ) {
+
+            showAlertMessage(
+                '資料載入成功！',
+                'success',
+                '成功'
+            )
+        }
+
     } catch (error) {
-        console.error('取得公司清單失敗：', error)
+        console.error(error)
+            // message.value = '資料載入失敗！'
+            // messageType.value = 'error'
+            // showMessage.value = true
+        showAlertMessage(
+            '資料載入失敗！',
+            'error',
+            '失敗QQ'
+        )
     } finally {
         loading.value = false
     }
+}
+
+onMounted(() => {
+    getCompanies(false)
 })
-
-const headersArea = [
-    { title: '父代碼', key: 'parentCompany' },
-    { title: '代碼', key: 'code' },
-    { title: '中文', key: 'name' },
-    { title: '英文', key: 'eName' }
-]
-
-const area = ref([])
-const loadingArea = ref(false)
-import { getAreaList } from '../../api/ihrms'
-
-onMounted(async () => {
-    loadingArea.value = true
-
-    try {
-        area.value = await getAreaList()
-    } catch (error) {
-        console.error('取得工作地點失敗：', error)
-    } finally {
-        loadingArea.value = false
-    }
-})
-
-
-
-
 
 </script>
+
+<style scoped>
+.table-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 8px;
+}
+.area-table :deep(thead th) {
+    background-color: #86754d;
+    color: white;
+}
+</style>
