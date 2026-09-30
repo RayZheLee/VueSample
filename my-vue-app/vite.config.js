@@ -7,5 +7,7 @@ export default defineConfig({
     plugins: [
         vue(),
         vuetify()
-    ]
+    ],
+
+    base: '/VueSample/'
 })

@@ -15,7 +15,7 @@
 
 <script setup>
 import PageTitle from '../../components/PageTitle.vue'
-import CompanyTable from './CompanyTable.vue'
+import CompanyTable from '../../components/CompanyTable.vue'
 </script>
 
 <style scoped>

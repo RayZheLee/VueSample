@@ -5,9 +5,14 @@ import QueryEmpInfo from '../features/QueryEmpInfo/QueryEmpInfo.vue'
 import QueryCompanyInfo from '../features/QueryCompany/QueryCompanyInfo.vue'
 import DialogSample from '../features/DialogSample/DialogSample.vue'
 import TableSample from '../features/TableSample/TableSample.vue'
+import PortalHome from '../features/Portal/PortalHome.vue'
 
 
 const routes = [
+    {
+    path: '/',
+    component: PortalHome
+    },
     {
         path: '/QueryCompany',
         component: QueryCompany
@@ -31,7 +36,7 @@ const routes = [
 ]
 
 const router = createRouter({
-    history: createWebHistory(),
+    history: createWebHistory('/VueSample/'),
     routes
 })
 

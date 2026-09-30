@@ -19,7 +19,7 @@
 
 <script setup>
 import PageTitle from '../../components/PageTitle.vue'
-import EmployeeTable from './EmployeeTable.vue'
+import EmployeeTable from '../../components/EmployeeTable.vue'
 
 </script>
 

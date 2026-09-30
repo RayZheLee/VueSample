@@ -11,52 +11,68 @@ import HelloWorld from './components/HelloWorld.vue'
     <v-app>
         <v-layout>
 
-            <!-- 左側 BAR -->
+            <!-- 左側選單 -->
             <v-navigation-drawer
                 v-model="drawer"
                 :rail="rail"
             >
+                <!-- Logo / 系統名稱 -->
+                <v-list-item
+                    prepend-icon="mdi-airplane"
+                    title="Vue Sample"
+                    subtitle="Portal"
+                    class="py-3"
+                />
+
+                <v-divider />
+
                 <v-list>
 
-                    <!-- 收合按鈕 -->
+                    <!-- 首頁 -->
                     <v-list-item
-                        prepend-icon="mdi-menu"
-                        @click="rail = !rail"
-                    >
-                        <template #title>
-                            選單
-                        </template>
-                    </v-list-item>
+                        to="/"
+                        prepend-icon="mdi-home"
+                        title="首頁"
+                    />
 
-                    <!-- 員工查詢 -->
+                    <v-divider class="my-2" />
+
+                    <!-- 功能 -->
+                    <v-list-subheader>
+                        功能
+                    </v-list-subheader>
+
                     <v-list-item
                         to="/QueryEmpInfo"
                         prepend-icon="mdi-account"
                         title="員工查詢"
                     />
 
-                    <!-- 公司查詢 -->
                     <v-list-item
                         to="/QueryCompany"
                         prepend-icon="mdi-domain"
                         title="公司查詢"
                     />
 
-                    <!-- 公司 / 工作地點查詢 -->
                     <v-list-item
                         to="/QueryCompanyInfo"
                         prepend-icon="mdi-map-marker"
                         title="公司 / 工作地點查詢"
                     />
 
-                    <!-- Dialog Sample -->
+                    <v-divider class="my-2" />
+
+                    <!-- Sample -->
+                    <v-list-subheader>
+                        Sample
+                    </v-list-subheader>
+
                     <v-list-item
                         to="/DialogSample"
-                        prepend-icon="mdi-human-male-board-poll"
+                        prepend-icon="mdi-forum-outline"
                         title="Dialog Sample"
                     />
 
-                    <!-- Table Sample -->
                     <v-list-item
                         to="/TableSample"
                         prepend-icon="mdi-table-cog"
@@ -64,9 +80,22 @@ import HelloWorld from './components/HelloWorld.vue'
                     />
 
                 </v-list>
+
+                <template #append>
+
+                    <v-divider />
+
+                    <v-list-item
+                        prepend-icon="mdi-menu"
+                        title="收合選單"
+                        @click="rail = !rail"
+                    />
+
+                </template>
+
             </v-navigation-drawer>
 
-            <!-- 右側主要內容 -->
+            <!-- 主要內容 -->
             <v-main>
                 <router-view />
             </v-main>

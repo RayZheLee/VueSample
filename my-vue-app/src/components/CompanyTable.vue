@@ -33,20 +33,13 @@
             loading-text="資料載入中..."
             class="area-table"
         />
-        <!-- 共用提示 Modal -->
-        <!-- <MessageDialog
-            v-model="showMessage"
-            type="success"
-            title=""
-            message="更新成功！"
-        /> -->
     </div>
 </template>
 
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import { getCompanyList } from '../../api/ihrms'
+import { getCompanyList } from '../api/ihrms'
 const search = ref('')
 
 const headers = [
@@ -57,7 +50,7 @@ const headers = [
 
 const companies = ref([])
 const loading = ref(false)
-import { showAlertMessage } from '../../utils/messageAlertDialog'
+import { showAlertMessage } from '../utils/messageAlertDialog'
 
 async function getCompanies(showDialog = false) {
     try {

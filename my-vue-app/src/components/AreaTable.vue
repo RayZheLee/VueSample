@@ -37,7 +37,7 @@ const headersArea = [
 
 const area = ref([])
 const loadingArea = ref(false)
-import { getAreaList } from '../../api/ihrms'
+import { getAreaList } from '../api/ihrms'
 
 onMounted(async () => {
     loadingArea.value = true

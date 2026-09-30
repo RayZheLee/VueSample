@@ -22,8 +22,8 @@
 
 <script setup>
 import PageTitle from '../../components/PageTitle.vue'
-import AreaTable from './AreaTable.vue';
-import CompanyTable from './CompanyTable.vue'
+import AreaTable from '../../components/AreaTable.vue';
+import CompanyTable from '../../components/CompanyTable.vue'
 </script>
 
 <style scoped>
