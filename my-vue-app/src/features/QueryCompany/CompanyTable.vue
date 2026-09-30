@@ -47,10 +47,6 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { getCompanyList } from '../../api/ihrms'
-import MessageDialog from '../../components/MessageDialog.vue'
-const showMessage = ref(false)
-const message = ref('')
-const messageType = ref('info')
 const search = ref('')
 
 const headers = [
@@ -83,9 +79,6 @@ async function getCompanies(showDialog = false) {
 
     } catch (error) {
         console.error(error)
-            // message.value = '資料載入失敗！'
-            // messageType.value = 'error'
-            // showMessage.value = true
         showAlertMessage(
             '資料載入失敗！',
             'error',

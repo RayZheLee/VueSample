@@ -30,7 +30,7 @@ import HelloWorld from './components/HelloWorld.vue'
 
                     <!-- 員工查詢 -->
                     <v-list-item
-                        to="/QueryEmployee"
+                        to="/QueryEmpInfo"
                         prepend-icon="mdi-account"
                         title="員工查詢"
                     />
@@ -47,6 +47,20 @@ import HelloWorld from './components/HelloWorld.vue'
                         to="/QueryCompanyInfo"
                         prepend-icon="mdi-map-marker"
                         title="公司 / 工作地點查詢"
+                    />
+
+                    <!-- Dialog Sample -->
+                    <v-list-item
+                        to="/DialogSample"
+                        prepend-icon="mdi-human-male-board-poll"
+                        title="Dialog Sample"
+                    />
+
+                    <!-- Table Sample -->
+                    <v-list-item
+                        to="/TableSample"
+                        prepend-icon="mdi-table-cog"
+                        title="Table Sample"
                     />
 
                 </v-list>
