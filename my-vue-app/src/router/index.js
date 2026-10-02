@@ -5,13 +5,13 @@ import QueryEmpInfo from '../features/QueryEmpInfo/QueryEmpInfo.vue'
 import QueryCompanyInfo from '../features/QueryCompany/QueryCompanyInfo.vue'
 import DialogSample from '../features/DialogSample/DialogSample.vue'
 import TableSample from '../features/TableSample/TableSample.vue'
+import AlertSample from '../features/AlertSample/AlertSample.vue'
 import PortalHome from '../features/Portal/PortalHome.vue'
-
 
 const routes = [
     {
-    path: '/',
-    component: PortalHome
+        path: '/',
+        component: PortalHome
     },
     {
         path: '/QueryCompany',
@@ -32,6 +32,10 @@ const routes = [
     {
         path: '/TableSample',
         component: TableSample
+    },
+    {
+        path: '/AlertSample',
+        component: AlertSample
     }
 ]
 

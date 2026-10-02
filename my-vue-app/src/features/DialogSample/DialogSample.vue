@@ -4,6 +4,10 @@
             <v-container fluid>
                     <div class="card-content">
                         <PageTitle title="部門/人員選擇器" />
+                        <p class="text-body-2 text-medium-emphasis mb-6">
+                            點擊按鈕查看效果。
+                        </p>
+                        
                         <v-row>
                             <v-col>
                                 <v-btn 

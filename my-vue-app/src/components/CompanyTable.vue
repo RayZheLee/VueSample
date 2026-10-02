@@ -50,7 +50,9 @@ const headers = [
 
 const companies = ref([])
 const loading = ref(false)
-import { showAlertMessage } from '../utils/messageAlertDialog'
+import { useAlert } from '../utils/Alert'
+
+const alert = useAlert()
 
 async function getCompanies(showDialog = false) {
     try {
@@ -63,19 +65,19 @@ async function getCompanies(showDialog = false) {
 
         if (showDialog ) {
 
-            showAlertMessage(
-                '資料載入成功！',
+            alert.show(
                 'success',
-                '成功'
+                '成功',
+                { text: '資料載入成功！' }
             )
         }
 
     } catch (error) {
         console.error(error)
-        showAlertMessage(
-            '資料載入失敗！',
+        alert.show(
             'error',
-            '失敗QQ'
+            '失敗QQ',
+            { text: '資料載入失敗！' }
         )
     } finally {
         loading.value = false

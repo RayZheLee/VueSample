@@ -79,6 +79,11 @@ import HelloWorld from './components/HelloWorld.vue'
                         title="Table Sample"
                     />
 
+                    <v-list-item
+                        to="/AlertSample"
+                        prepend-icon="mdi-alert"
+                        title="Alert Sample"
+                    />
                 </v-list>
 
                 <template #append>

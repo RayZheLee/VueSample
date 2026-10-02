@@ -1,8 +1,8 @@
 ```vue
 <template>
-    <div class="page-title">
+    <h1 class="text-h5 mb-1">
         {{ title }}
-    </div>
+    </h1>
 </template>
 
 <script setup>
