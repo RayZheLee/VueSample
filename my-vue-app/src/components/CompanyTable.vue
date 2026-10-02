@@ -97,7 +97,7 @@ onMounted(() => {
     margin-bottom: 8px;
 }
 .area-table :deep(thead th) {
-    background-color: #86754d;
+    background-color: rgb(var(--v-theme-primary-base));
     color: white;
 }
 </style>

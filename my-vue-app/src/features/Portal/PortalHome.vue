@@ -56,10 +56,11 @@
                     hover
                     height="180"
                     class="pa-6"
+                    color="primary-lighter"
                 >
                     <v-icon
                         size="48"
-                        color="primary-base"
+                        color="secondary-darker"
                         class="mb-4"
                     >
                         mdi-account
@@ -86,10 +87,11 @@
                     hover
                     height="180"
                     class="pa-6"
+                    color="primary-lighter"
                 >
                     <v-icon
                         size="48"
-                        color="primary-base"
+                        color="secondary-darker"
                         class="mb-4"
                     >
                         mdi-domain
@@ -116,10 +118,11 @@
                     hover
                     height="180"
                     class="pa-6"
+                    color="primary-lighter"
                 >
                     <v-icon
                         size="48"
-                        color="primary-base"
+                        color="secondary-darker"
                         class="mb-4"
                     >
                         mdi-map-marker
@@ -156,7 +159,7 @@
                     class="pa-5"
                 >
                     <v-icon
-                        color="primary-base"
+                        color="secondary-darker"
                         class="mr-2"
                     >
                         mdi-forum-outline
@@ -177,13 +180,34 @@
                     class="pa-5"
                 >
                     <v-icon
-                        color="primary-base"
+                        color="secondary-darker"
                         class="mr-2"
                     >
                         mdi-table-cog
                     </v-icon>
 
                     Table Sample
+                </v-card>
+            </v-col>
+
+            <v-col
+                cols="12"
+                sm="6"
+            >
+                <v-card
+                    to="/AlertSample"
+                    hover
+                    variant="outlined"
+                    class="pa-5"
+                >
+                    <v-icon
+                        color="secondary-darker"
+                        class="mr-2"
+                    >
+                        mdi-alert
+                    </v-icon>
+
+                    Alert Sample
                 </v-card>
             </v-col>
 

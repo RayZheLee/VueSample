@@ -37,7 +37,7 @@ const headersArea = [
 
 const area = ref([])
 const loadingArea = ref(false)
-import { getAreaList } from '../api/ihrms'
+import { getAreaList } from '../api/ihrms.js'
 
 onMounted(async () => {
     loadingArea.value = true
@@ -56,7 +56,7 @@ onMounted(async () => {
 
 <style scoped>
 .area-table :deep(thead th) {
-    background-color: #86754d;
+    background-color: rgb(var(--v-theme-primary-base));
     color: white;
 }
 </style>

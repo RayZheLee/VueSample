@@ -22,4 +22,12 @@ export const members = ref([
     { accountID: 'A020', displayName: '洪偉倫', department: '資訊部', email: 'test20@example.com' }
 ])
 
+//import { name } from './employeeService.js'
+export const name = ref([]) 
+
+//import accountID from './employeeService.js'
+const accountID = ref([])
+export default accountID 
+
+//同時取得 import accountID, { name } from './employeeService.js'
 
