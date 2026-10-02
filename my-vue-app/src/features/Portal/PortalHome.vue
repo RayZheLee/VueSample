@@ -147,6 +147,47 @@
         </div>
 
         <v-row>
+            <v-col
+                cols="12"
+                sm="6"
+            >
+                <v-card
+                    to="/AlertSample"
+                    hover
+                    variant="outlined"
+                    class="pa-5"
+                >
+                    <v-icon
+                        color="secondary-darker"
+                        class="mr-2"
+                    >
+                        mdi-alert
+                    </v-icon>
+
+                    Alert Sample
+                </v-card>
+            </v-col>
+
+            <v-col
+                cols="12"
+                sm="6"
+            >
+                <v-card
+                    to="/ButtonSample"
+                    hover
+                    variant="outlined"
+                    class="pa-5"
+                >
+                    <v-icon
+                        color="secondary-darker"
+                        class="mr-2"
+                    >
+                        mdi-button-cursor
+                    </v-icon>
+
+                    Button Sample
+                </v-card>
+            </v-col>
 
             <v-col
                 cols="12"
@@ -187,27 +228,6 @@
                     </v-icon>
 
                     Table Sample
-                </v-card>
-            </v-col>
-
-            <v-col
-                cols="12"
-                sm="6"
-            >
-                <v-card
-                    to="/AlertSample"
-                    hover
-                    variant="outlined"
-                    class="pa-5"
-                >
-                    <v-icon
-                        color="secondary-darker"
-                        class="mr-2"
-                    >
-                        mdi-alert
-                    </v-icon>
-
-                    Alert Sample
                 </v-card>
             </v-col>
 

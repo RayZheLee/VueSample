@@ -40,6 +40,8 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { getCompanyList } from '../api/ihrms'
+import { JxAlert } from '../utils/JxAlert.js'
+
 const search = ref('')
 
 const headers = [
@@ -50,9 +52,6 @@ const headers = [
 
 const companies = ref([])
 const loading = ref(false)
-import { useAlert } from '../utils/Alert'
-
-const alert = useAlert()
 
 async function getCompanies(showDialog = false) {
     try {
@@ -65,7 +64,7 @@ async function getCompanies(showDialog = false) {
 
         if (showDialog ) {
 
-            alert.show(
+            JxAlert.show(
                 'success',
                 '成功',
                 { text: '資料載入成功！' }
@@ -74,7 +73,7 @@ async function getCompanies(showDialog = false) {
 
     } catch (error) {
         console.error(error)
-        alert.show(
+        JxAlert.show(
             'error',
             '失敗QQ',
             { text: '資料載入失敗！' }

@@ -1,12 +1,12 @@
 <template>
     <v-dialog 
         v-model="dialog" 
-        max-width="700px" 
+        max-width="1000px" 
         @click:outside="handleCancel">
         <v-card>
             <v-card-title 
                 class="font-weight-black px-6 mt-3">
-                請選擇部門
+                請選擇人員
             </v-card-title>
             <v-card-text>
                 <v-chip-group 
@@ -16,11 +16,11 @@
                     active-class="">
                     <v-chip 
                         v-for="(item, index) in selected" 
-                        :key="item.depId ?? index" 
+                        :key="item.EMPLOYEE_NO ?? index" 
                         closable
                         @click:close="removeSelected(index)" 
                         class="gray-300">
-                        {{ item.cName }}
+                        {{ item.EMPLOYEE_CNAME }}
                     </v-chip>
                 </v-chip-group>
 
@@ -35,7 +35,7 @@
                     v-model="selected" 
                     :headers="headers" 
                     :items="items" 
-                    item-value="depId"
+                    item-value="EMPLOYEE_NO"
                     :search="search" 
                     :select-strategy="singleSelect ? 'single' : 'page'" 
                     show-select 
@@ -63,7 +63,8 @@
 
 <script setup>
 
-import { ref, computed, inject, watch } from 'vue'
+import { ref, computed, watch } from 'vue'
+import { JxAlert } from '../utils/JxAlert.js'
 
 const props = defineProps({
     fetchData:    { type: Function, required: true },
@@ -74,7 +75,7 @@ const props = defineProps({
 const emit = defineEmits(['confirm', 'cancel'])
 
 // v-model="..."          -> 對話框開關狀態
-// v-model:selected="..." -> 已選取的部門陣列
+// v-model:selected="..." -> 已選取的人員陣列
 const dialog = defineModel({ type: Boolean, default: false })
 const selected = defineModel('selected', { type: Array, default: () => [] })
 
@@ -83,21 +84,20 @@ const search = ref('')
 const items = ref([])
 
 const headers = [
-    { title: '部門簡碼', key: 'depId' },
-    { title: '部門名稱', key: 'cName' },
+    { title: '部門名稱', key: 'DEPARTMENT_CNAME' },
+    { title: '職稱', key: 'JOB_CNAME' },
+    { title: '人員姓名', key: 'EMPLOYEE_CNAME' },
+    { title: '人員帳號', key: 'EMPLOYEE_NO' },
 ]
 
 const confirmDisabled = computed(() => props.disabled || selected.value.length === 0)
-
-// 由外層 app.provide('swalFire', fn) 注入，取代原本未定義的 this.SwalFire
-const swalFire = inject('swalFire', null)
 
 async function load() {
     loading.value = true
     try {
         items.value = await props.fetchData()
     } catch (error) {
-        swalFire?.(false, '取得資料異常，請通知IT單位。')
+        JxAlert.show('error', '錯誤', { text: '取得資料異常，請通知IT單位。' })
         console.error(error)
     } finally {
         loading.value = false

@@ -1,7 +1,7 @@
 import Swal from "sweetalert2";
 
 const FALLBACK = {
-    primary: "#1976D2",
+    primary: "#86754D",
     grayLight: "#e0e0e0",
     grayDark: "#333333",
 };
@@ -77,9 +77,9 @@ async function confirm(title, options = {}) {
     return result.isConfirmed;
 }
 
-export const alert = { show, confirm };
 
-// composable：<script setup> 使用
+export const JxAlert = { show, confirm }
+
 export function useAlert() {
-    return alert;
+    return JxAlert
 }

@@ -3,9 +3,10 @@ import { createRouter, createWebHistory } from 'vue-router'
 import QueryCompany from '../features/QueryCompany/QueryCompany.vue'
 import QueryEmpInfo from '../features/QueryEmpInfo/QueryEmpInfo.vue'
 import QueryCompanyInfo from '../features/QueryCompany/QueryCompanyInfo.vue'
-import DialogSample from '../features/DialogSample/DialogSample.vue'
-import TableSample from '../features/TableSample/TableSample.vue'
-import AlertSample from '../features/AlertSample/AlertSample.vue'
+import DialogSample from '../features/JxDialog/DialogSample.vue'
+import TableSample from '../features/JxTable/TableSample.vue'
+import AlertSample from '../features/JxAlert/AlertSample.vue'
+import ButtonSample from '../features/JxButton/ButtonSample.vue'
 import PortalHome from '../features/Portal/PortalHome.vue'
 
 const routes = [
@@ -26,6 +27,14 @@ const routes = [
         component: QueryCompanyInfo
     },
     {
+        path: '/AlertSample',
+        component: AlertSample
+    },
+    {
+        path: '/ButtonSample',
+        component: ButtonSample
+    },
+    {
         path: '/DialogSample',
         component: DialogSample
     },
@@ -33,10 +42,6 @@ const routes = [
         path: '/TableSample',
         component: TableSample
     },
-    {
-        path: '/AlertSample',
-        component: AlertSample
-    }
 ]
 
 const router = createRouter({

@@ -1,4 +1,3 @@
-```vue
 <template>
     <h1 class="text-h5 mb-1">
         {{ title }}
@@ -21,4 +20,4 @@ defineProps({
     margin-bottom: 16px;
 }
 </style>
-```
+

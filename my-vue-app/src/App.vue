@@ -66,23 +66,26 @@ import HelloWorld from './components/HelloWorld.vue'
                     <v-list-subheader>
                         Sample
                     </v-list-subheader>
-
+  
+                    <v-list-item
+                        to="/AlertSample"
+                        prepend-icon="mdi-alert"
+                        title="Alert Sample"
+                    />
+                    <v-list-item
+                        to="/ButtonSample"
+                        prepend-icon="mdi-button-cursor"
+                        title="Button Sample"
+                    />
                     <v-list-item
                         to="/DialogSample"
                         prepend-icon="mdi-forum-outline"
                         title="Dialog Sample"
                     />
-
                     <v-list-item
                         to="/TableSample"
                         prepend-icon="mdi-table-cog"
                         title="Table Sample"
-                    />
-
-                    <v-list-item
-                        to="/AlertSample"
-                        prepend-icon="mdi-alert"
-                        title="Alert Sample"
                     />
                 </v-list>
 
