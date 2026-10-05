@@ -19,7 +19,7 @@ const props = defineProps({
     color: {
         type: String,
         default: 'primary',
-        validator: (v) => ['primary', 'secondary', 'success', 'danger', 'gray'].includes(v),
+        validator: (v) => ['primary', 'secondary', 'success', 'danger' ,'warning', 'gray'].includes(v),
     },
     isOutline: { type: Boolean, default: false },
     isSmall:   { type: Boolean, default: false },
@@ -32,6 +32,7 @@ const COLOR_MAP = {
     secondary: 'secondary-base',
     success:   'state-success',
     danger:    'state-error',
+    warning:   'state-warning',
     gray:      'gray-300',
 }
 
@@ -48,8 +49,8 @@ const vuetifyColor = computed(() => {
     return COLOR_MAP[props.color]
 })
 
-// 綠色實心按鈕固定白字
+// 綠色、橘色實心按鈕固定白字
 const whiteText = computed(
-    () => props.color === 'success' && variant.value === 'flat'
+    () => (props.color === 'success' || props.color === 'warning') && variant.value === 'flat'
 )
 </script>

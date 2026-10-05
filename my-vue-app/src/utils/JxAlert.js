@@ -1,18 +1,13 @@
 import Swal from "sweetalert2";
+import { vuetify } from '../plugins/vuetify.js'
 
-const FALLBACK = {
-    primary: "#86754D",
-    grayLight: "#e0e0e0",
-    grayDark: "#333333",
-};
-
-// 預防 themes 未定義
+// 從 themes 取得企業色
 function getColors() {
-    const light = typeof themes !== "undefined" ? themes?.light : null;
+    const colors = vuetify.theme.current.value.colors;
     return {
-        primary: light?.["primary-base"] ?? FALLBACK.primary,
-        grayLight: light?.["gray-300"] ?? FALLBACK.grayLight,
-        grayDark: light?.["gray-900-dark"] ?? FALLBACK.grayDark,
+        primary: colors["primary-base"],
+        grayLight: colors["gray-300"] ,
+        grayDark: colors["gray-900-dark"] ,
     };
 }
 
@@ -68,8 +63,8 @@ async function confirm(title, options = {}) {
         confirmButtonColor: colors.primary,
         cancelButtonColor: colors.grayLight,
         didRender: () => {
-        const btn = Swal.getCancelButton();
-        if (btn) btn.style.color = colors.grayDark;
+            const btn = Swal.getCancelButton();
+            if (btn) btn.style.color = colors.grayDark;
         },
         ...swalOptions,
     });

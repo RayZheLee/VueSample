@@ -44,18 +44,16 @@
             </v-card-text>
 
             <v-card-actions>
-                <v-btn 
-                    color="primary-base" 
-                    variant="flat"
+                <jx-button 
                     :disabled="confirmDisabled"
                     @click="handleConfirm">
-                    確認新增
-                </v-btn>
-                <v-btn 
-                    class="gray-300" 
+                    確認
+                </jx-button>
+                <jx-button 
+                    color="gray" 
                     @click="handleCancel">
                     取消
-                </v-btn>
+                </jx-button>
             </v-card-actions>
         </v-card>
     </v-dialog>
@@ -65,6 +63,7 @@
 
 import { ref, computed, watch } from 'vue'
 import { JxAlert } from '../utils/JxAlert.js'
+import JxButton from '../components/JxButton.vue'
 
 const props = defineProps({
     fetchData:    { type: Function, required: true },
