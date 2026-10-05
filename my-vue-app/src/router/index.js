@@ -8,6 +8,7 @@ import TableSample from '../features/JxTable/TableSample.vue'
 import AlertSample from '../features/JxAlert/AlertSample.vue'
 import ButtonSample from '../features/JxButton/ButtonSample.vue'
 import PortalHome from '../features/Portal/PortalHome.vue'
+import NotFound from '../features/NotFound/NotFound.vue'
 
 const routes = [
     {
@@ -42,6 +43,11 @@ const routes = [
         path: '/TableSample',
         component: TableSample
     },
+    // ⭐ 404
+    {
+        path: '/:pathMatch(.*)*',
+        component: NotFound
+    }
 ]
 
 const router = createRouter({
